@@ -1,6 +1,10 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import { dbConnection } from './config/dbConnection.js'
+import productRoutes from './routes/productRoutes.js'
+import homeRoutes from './routes/homeRoutes.js'
+import supplierRoutes from './routes/supplierRoutes.js'
+import categoryRoutes from './routes/categoryRoutes.js'
 
 const app = express()
 
@@ -12,9 +16,12 @@ app.use(express.json())
 // database connection
 dbConnection()
 
-app.get('/', (req, res) => {
-    res.send('Hello From Server')
-})
+// Routes
+app.use('/', homeRoutes)
+app.use('/product', productRoutes)
+// Additionally, two other routes were created for adding data, even though they were not explicitly mentioned in the assignment requirements
+app.use('/supplier', supplierRoutes)
+app.use('/category', categoryRoutes)
 
 
 const PORT = process.env.PORT || 8080
