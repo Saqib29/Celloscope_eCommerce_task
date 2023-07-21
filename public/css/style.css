@@ -1,3 +1,8 @@
+.all_products_title {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
 .remove_underline {
     text-decoration: none;
 }
@@ -9,3 +14,13 @@
     margin: auto;
 }
 
+.product-image {
+    width: 100%;
+    height: auto;
+    margin-right: 1.5rem;
+}
+
+.edit-button {
+    margin-bottom: 50px;
+    margin-left: 1.5rem;
+}

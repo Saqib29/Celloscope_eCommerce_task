@@ -40,7 +40,8 @@ const getProductById = async (req, res) => {
           return res.status(404).json({ error: 'Product not found' })
         }
     
-        res.json(product)
+        res.render('product/product_details', { title: product.name, product: product })
+        // res.json(product)
       } catch (error) {
         console.error(`Error retrieving product by ID: `, error)
         res.status(500).json({ error: 'Internal Server Error' })

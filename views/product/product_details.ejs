@@ -1,0 +1,38 @@
+<%- include('../layout/header') %>
+
+
+<div class="container">
+    <div class="d-flex justify-content-start">
+        <h3 class="all_products_title">Product Details</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="d-flex justify-content-end mb-4">
+        <a href="/product/edit">
+            <button class="btn btn-dark">Edit the product</button>
+        </a>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center align-items-center">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="/uploads/mobile.jpg" alt="<%= product.name %>" class="product-image">
+        </div>
+        <div class="col-md-8">
+            <h1><%= product.name %></h1>
+            <p><strong>Price:</strong> <strong style="font-size: x-large;">৳</strong> <%= product.price %></p>
+            <p><strong>Description:</strong> <%= product.description %></p>
+            <p><strong>Stock:</strong> <%= product.unitStock %></p>
+            <p><strong>Category:</strong> <%= product.category.name %></p>
+            <p><strong>Supplier:</strong> <%= product.supplier.name %></p>
+            <p><strong>Contact Email:</strong> <%= product.supplier.contact_email %></p>
+            <p><strong>Contact Phone:</strong> <%= product.supplier.contact_phone %></p>
+            <p><strong>Address:</strong> <%= product.supplier.address %></p>
+        </div>
+        
+      </div>
+</div>
+
+
+<%- include('../layout/footer') %>
