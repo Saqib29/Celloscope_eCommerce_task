@@ -1,0 +1,11 @@
+.remove_underline {
+    text-decoration: none;
+}
+
+.card-image {
+    max-width: 150px;
+    height: auto;
+    padding: 2%;
+    margin: auto;
+}
+
