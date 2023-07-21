@@ -1,8 +1,8 @@
-import express from 'express';
-import { addSupplier } from '../controllers/supplierController.js';
+import express from 'express'
+import { addSupplier } from '../controllers/supplierController.js'
 
-const router = express.Router();
+const router = express.Router()
 
-router.route('/add_ssupplier').post(addSupplier);
+router.route('/add_ssupplier').post(addSupplier)
 
-export default router;
+export default router
