@@ -5,10 +5,10 @@ const getAllProducts = async (req, res) => {
         const products = await Product.findAll({
             // attributes I don't want to retrieve this time
             attributes: {
-                exclude: ['supplierId', 'categoryId']
-            }
+                exclude: ['supplierId', 'categoryId', 'description']
+            },
         })
-        res.json(products)
+        res.render('home/homePage', { products: products, title: 'Home ' })
     } catch (error) {
         console.error(`Error retrieving products: `, error)
         res.status(500).json({ error: 'Internal Server Error' })
