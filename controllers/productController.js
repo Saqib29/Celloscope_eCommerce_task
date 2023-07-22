@@ -41,24 +41,43 @@ const createProduct = async (req, res) => {
 }
 
 const updateProduct = async (req, res) => {
+    const productId = req.params.id
     try {
-        const productId = req.params.id
-        const { name, price, description, unitStock, image } = req.body
+        if (req.method == 'GET') {
+            const product = await Product.findOne({
+                // including the associated category and supplier data in the result
+                where: { id: productId },
+                include: [
+                    { model: Category, as: 'category' },
+                    { model: Supplier, as: 'supplier' },
+                ]
+            })
+            // res.json(product)
+            res.render('product/productUpdate', {
+                title: "Update Product",
+                product: product
+            })
+        } else if (req.method == 'POST') {
+            
+            const { name, price, description, unitStock } = req.body
+            const product = await Product.findByPk(productId)
 
-        const product = await Product.findByPk(productId)
-        if (!product) {
-            return res.status(404).json({ error: 'Product not found' })
+            if (!product) {
+                return res.status(404).json({ error: 'Product not found' })
+            }
+
+            product.name = name
+            product.price = price
+            product.description = description
+            product.unitStock = unitStock
+            if(req.file) {
+                product.image = req.file.filename
+            }
+
+            await product.save()
+
+            res.redirect(`/product/details/${productId}`)
         }
-
-        product.name = name
-        product.price = price
-        product.description = description
-        product.unitStock = unitStock
-        product.image = image
-
-        await product.save()
-
-        res.redirect(`/product/details/${productId}`)
     } catch (error) {
         console.error(`Error updating product: `, error)
         res.status(500).json({ error: 'Internal Server Error' })

@@ -7,6 +7,7 @@ const getAllProducts = async (req, res) => {
             attributes: {
                 exclude: ['supplierId', 'categoryId', 'description']
             },
+            order: [['updatedAt', 'DESC']],
         })
         res.render('home/homePage', { products: products, title: 'Home ' })
     } catch (error) {
