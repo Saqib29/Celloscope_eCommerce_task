@@ -5,9 +5,22 @@ import Supplier from "../models/SupplierModel.js"
 const createProduct = async (req, res) => {
     try{
         if(req.method == 'GET') {
-            res.render('product/prodcutCreate', { title: 'Create Product' })
+            const [ categories, suppliers ] = await Promise.all([
+                Category.findAll({}),
+                Supplier.findAll({})
+            ])
+            res.render('product/prodcutCreate', { 
+                title: 'Create Product', 
+                categories: categories, 
+                suppliers: suppliers 
+            })
         } else if (req.method == 'POST') {
-            const { name, price, description, unitStock, categoryId, supplierId, image } = req.body
+            const { name, price, description, unitStock, categoryId, supplierId } = req.body
+            
+            if(req.file) {
+                const { filename, originalname, size } = req.file
+                console.log('Uploaded file:', filename, originalname, size)
+            }
 
             const newProduct = await Product.create({
                 name,
@@ -16,14 +29,14 @@ const createProduct = async (req, res) => {
                 unitStock,
                 categoryId,
                 supplierId,
-                image
+                image: req.file.filename,
             })
-            res.json(newProduct)
+            res.redirect(`/product/details/${newProduct.id}`)
         }
         
     } catch (error) {
         console.error('Error creating product:', error)
-        res.status(500).json({ error: 'Internal Server Error' })
+        res.status(500).json({ error: error })
     }
 }
 
