@@ -29,7 +29,7 @@ const createProduct = async (req, res) => {
                 unitStock,
                 categoryId,
                 supplierId,
-                image: req.file.filename,
+                image: req.file ? req.file.filename : 'Image_not_available.png',
             })
             res.redirect(`/product/details/${newProduct.id}`)
         }
