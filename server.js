@@ -17,18 +17,19 @@ dotenv.config()
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.use(upload.single('image'))
 
 // database connection
 dbConnection()
 
 // Routes
-app.use('/', homeRoutes)
 app.use('/product', productRoutes)
 // Additionally, two other routes were created for adding data, even though they were not explicitly mentioned in the assignment requirements
 app.use('/user', userRoutes)
 app.use('/supplier', supplierRoutes)
 app.use('/category', categoryRoutes)
+app.use('/', homeRoutes)
 
 
 const PORT = process.env.PORT || 8080
