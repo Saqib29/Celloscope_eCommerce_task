@@ -2,47 +2,71 @@
 
 ### Project run instructions
 
-First clone the repository in local. After that, create the database in postgresql. Then before run the project please add the environment variables
-`# NODE_ENV = development
-PORT
-POSTGRESQL_DB_URI`
-set the POSTGRESQL database connection link
+First clone the repository in local. After that, create the database in PostgreSQL. Then, before running the project, please add the following environment variables:
+- `NODE_ENV = development`
+- `PORT`
+- `POSTGRESQL_DB_URI`
+Set the `POSTGRESQL_DB_URI` to the PostgreSQL database connection link: __postgres://UserName:Password@Hostname:5432/DatabaseName__
 
-> postgres://UserName:Password@Hostname:5432/DatabaseName
 
-then run `npm run start` to start the server normally or run with command `npm run dev` to start the server as development.
-.
+Then, run `npm run start` to start the server normally, or run with the command `npm run dev` to start the server in development mode.
 
-### Project details.
+### Project details
 
 1. Home Page
-2. Product details page
-3. Create product Page
-4. Edit product page
-5. Add SUpplier page
-6. Add Category page
+2. Product Details Page
+3. Create Product Page
+4. Edit Product Page
+5. Add Supplier Page
+6. Add Category Page
 
-### features added
+### Features added
 
-1. Server side data validation
-2. validation from frondend
-3. For style used CSS and Bootstrap.
-4. Used Sequelize ORM to interact with database.
+1. Server-side data validation
+2. Frontend validation
+3. Styling using CSS and Bootstrap
+4. Responsive design
+5. Used Sequelize ORM to interact with the database
 
-### Technology used.
+### Technology used
 
-1. Nodejs
-2. Postgresql
-3. for template engine EJS
-4. for server side validation 'express validator'
+1. Node.js
+2. PostgreSQL
+3. EJS (for the template engine)
+4. Express Validator (for server-side validation)
 
-### endpoints
+### Endpoints
 
-1. /home -> to view all products
-2. /product/create -> to create
-3. /product/update -> to update the product
-4. /product/details/id -> to view the product details
-5. /product/delete/id -> to delete the product
-6. /suppliser/add_supplier -> to add suppliers
-7. /category/add_category -> to add category
+1. `/home` -> View all products
+2. `/product/create` -> Create a new product
+3. `/product/update` -> Update a product
+4. `/product/details/:id` -> View product details
+5. `/product/delete/:id` -> Delete a product
+6. `/supplier/add_supplier` -> Add suppliers
+7. `/category/add_category` -> Add categories
 
+### Project snippets
+
+- Home page
+![Image](./project/1.png)
+
+- Product details page
+![Image](./project/2.png)
+
+- Update product page
+![Image](./project/3.png)
+
+- Delete product action
+![Image](./project/4.png)
+
+- Product create page
+![Image](./project/5.png)
+
+- Add Supplier and Category features
+![Image](./project/6.png)
+
+- Add Supplier page
+![Image](./project/7.png)
+
+- Add Category page
+![Image](./project/8.png)
