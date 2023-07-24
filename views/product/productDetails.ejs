@@ -28,14 +28,14 @@
         <div class="col-md-4 p-5">
             <img src="/uploads/<%= product.image %>" alt="<%= product.name %>" class="product-image" onerror="this.src='/image/Image_not_available.png';">
         </div>
-        <div class="col-md-4 mt-5">
+        <div class="col-md-4 mt-5 product-details-margin">
             <h1><%= product.name %></h1>
             <p><strong>Price:</strong> <strong style="font-size: x-large;">৳</strong> <%= product.price %></p>
             <p><strong>Description:</strong> <%= product.description %></p>
             <p><strong>Stock:</strong> <%= product.unitStock %></p>
             
         </div>
-        <div class="col-md-4 mt-5 pt-5">
+        <div class="col-md-4 mt-5 product-details-margin">
             <p><strong>Category:</strong> <%= product.category.name %></p>
             <p><strong>Supplier:</strong> <%= product.supplier.name %></p>
             <div>
@@ -102,3 +102,4 @@
     }
     
 </script>
+

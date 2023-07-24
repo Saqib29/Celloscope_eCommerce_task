@@ -30,3 +30,9 @@
     width: 100%;
     height: 200px;
 }
+
+@media (max-width: 576px) {
+    .product-details-margin {
+        margin-left: 20px;
+    }
+}

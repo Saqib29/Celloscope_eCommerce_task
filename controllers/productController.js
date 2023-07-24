@@ -19,7 +19,6 @@ const createProduct = async (req, res) => {
             
             if(req.file) {
                 const { filename, originalname, size } = req.file
-                console.log('Uploaded file:', filename, originalname, size)
             }
 
             const newProduct = await Product.create({
