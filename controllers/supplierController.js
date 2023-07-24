@@ -3,16 +3,21 @@ import Supplier from "../models/SupplierModel.js"
 
 const addSupplier = async (req, res) => {
     try{
-        const { name, contact_email, contact_phone, address } = req.body
+        if (req.method == 'GET') {
+            res.render('supplierandCategory/supplier', { title: "Add Supplier" })
 
-        const newSupplier = await Supplier.create({
-            name,
-            contact_email,
-            contact_phone,
-            address
-        })
+        } else if (req.method == 'POST') {
+            const { name, contact_email, contact_phone, address } = req.body
 
-        res.status(201).json(newSupplier)
+            const newSupplier = await Supplier.create({
+                name,
+                contact_email,
+                contact_phone,
+                address
+            })
+    
+            res.redirect('/')
+        }
     } catch(error) {
         console.error('Error adding supplier:', error)
         res.status(500).json({ error: 'An error occurred while adding the supplier.' })

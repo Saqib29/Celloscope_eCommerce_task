@@ -25,7 +25,6 @@ dbConnection()
 
 // Routes
 app.use('/product', productRoutes)
-// Additionally, two other routes were created for adding data, even though they were not explicitly mentioned in the assignment requirements
 app.use('/user', userRoutes)
 app.use('/supplier', supplierRoutes)
 app.use('/category', categoryRoutes)
