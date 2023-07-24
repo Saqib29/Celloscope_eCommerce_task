@@ -25,7 +25,7 @@ dbConnection()
 
 // Routes
 app.use('/product', productRoutes)
-app.use('/user', userRoutes)
+// app.use('/user', userRoutes)
 app.use('/supplier', supplierRoutes)
 app.use('/category', categoryRoutes)
 app.use('/', homeRoutes)
